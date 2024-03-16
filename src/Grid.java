@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class Grid {
-    private String[][] board;
+    private static String[][] board;
     private String ANSI_GREEN_BACKGROUND;
     private String ANSI_RESET;
     public Grid() {
@@ -9,7 +9,7 @@ public class Grid {
         ANSI_GREEN_BACKGROUND = "\u001B[42m";
         ANSI_RESET = "\u001B[0m";
     }
-    public void populateGrid() {
+    public  void populateGrid() {
         for (int col = 0; col < board[0].length; col++) {
             board[0][col] = ANSI_GREEN_BACKGROUND + "[]" + ANSI_RESET;
         }
@@ -42,7 +42,7 @@ public class Grid {
         board[10][9] = "\u001B[40;1m" + "[]" + ANSI_RESET;
         board[10][8] = "\u001B[46;1m" + "\uD83D\uDCBC" + ANSI_RESET;
         board[10][7] = "\u001B[40;1m" + "[]" + ANSI_RESET;
-        board[10][6] = ANSI_GREEN_BACKGROUND + "TX" + ANSI_RESET;
+        board[10][6] = "\033[43m" + "!!" + ANSI_RESET;
         board[10][5] =  ANSI_GREEN_BACKGROUND + "\uD83D\uDE82" + ANSI_RESET;
         board[10][1] = "\u001B[44;1m" + "[]" + ANSI_RESET;
         board[10][3] = ANSI_GREEN_BACKGROUND + "❓" + ANSI_RESET;
@@ -76,14 +76,16 @@ public class Grid {
         board[5][10] =  ANSI_GREEN_BACKGROUND + "\uD83D\uDE82" + ANSI_RESET;
         board[6][10] =  ANSI_GREEN_BACKGROUND + "??" + ANSI_RESET;
         board[7][10] = "\033[0;107m" + "[]" + ANSI_RESET;
-        board[8][10] = ANSI_GREEN_BACKGROUND + "TX" + ANSI_RESET;
+        board[8][10] = "\033[43m" + "!!" + ANSI_RESET;
         board[9][10] = "\033[0;107m" + "[]" + ANSI_RESET;
+        Game newGame = new Game();
+    }
+    public static void printGrid() {
         for (int i = 0; i < board.length; i++) {
             for (int x = 0; x < board[0].length; x++) {
                 System.out.print(board[i][x]);
             }
             System.out.println();
         }
-
     }
 }
