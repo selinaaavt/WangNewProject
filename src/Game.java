@@ -55,44 +55,7 @@ public class Game {
         while (currentPlayer != null) {
             System.out.println("It is " + currentPlayer.getName() + "'s turn! ");
             int moves = rollDice();
-            System.out.println(currentPlayer.getName() + " rolled " + moves + " moves! " );
-            if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 10) {
-                if (currentPlayer.getYCoordinate() - moves >= 0) {
-                    int[] stuffs = {currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate() - moves};
-                    currentPlayer.setCoordinates(stuffs);
-                    Grid.setBoard(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate(), currentPlayer);
-                } else {
-                    int leftOvers = moves - currentPlayer.getYCoordinate();
-                    if (currentPlayer.getXCoordinate() - leftOvers >= 0) {
-                        int[] stuffs = {currentPlayer.getXCoordinate() - leftOvers, 0};
-                        currentPlayer.setCoordinates(stuffs);
-                        Grid.setBoard(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate(), currentPlayer);
-                    } else {
-                        int smth = leftOvers - currentPlayer.getXCoordinate();
-                        int[] stuffs = {0, leftOvers};
-                        currentPlayer.setCoordinates(stuffs);
-                        Grid.setBoard(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate(), currentPlayer);
-                    }
-                }
-            } else if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 0) {
-                if (currentPlayer.getYCoordinate() - moves >= 0) {
-                    int[] stuffs = {currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate() - moves};
-                    currentPlayer.setCoordinates(stuffs);
-                    Grid.setBoard(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate(), currentPlayer);
-                } else {
-                    int leftOvers = moves - currentPlayer.getYCoordinate();
-                    if (currentPlayer.getXCoordinate() - leftOvers >= 0) {
-                        int[] stuffs = {currentPlayer.getXCoordinate() - leftOvers, 0};
-                        currentPlayer.setCoordinates(stuffs);
-                        Grid.setBoard(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate(), currentPlayer);
-                    } else {
-                        int smth = leftOvers - currentPlayer.getXCoordinate();
-                        int[] stuffs = {0, leftOvers};
-                        currentPlayer.setCoordinates(stuffs);
-                        Grid.setBoard(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate(), currentPlayer);
-                    }
-                } 
-            }
+
             Grid.printGrid();
             if (currentPlayer == player1) {
                 currentPlayer = player2;
@@ -103,6 +66,23 @@ public class Game {
             } else if (currentPlayer == player4) {
                 currentPlayer = player1;
             }
+        }
+    }
+    public void determiningOptions(Player currentPlayer) {
+        if (currentPlayer.getXCoordinate() == 9 && currentPlayer.getYCoordinate() == 10 ) {
+            System.out.println("You landed on Mediterranean Avenue. \nCost: $60 \nRent: $2 \nRent with Color set: $4 \nRent with 1 house: $10 \nRent with 2 house: $30 + \nRent with 3 house: $90 \nRent with 4 house: $160 \nRent with Hotel: $250 \n --------------------- \nHouse cost: $50 each \nHotel cost: $50 each");
+        }
+        if (currentPlayer.getXCoordinate() == 8 && currentPlayer.getYCoordinate() == 10 ) {
+            System.out.println("You landed on Baltic Avenue. \nCost: $60 \nRent: $4 \nRent with Color set: $8 \nRent with 1 house: $20 \nRent with 2 house: $60 + \nRent with 3 house: $180 \nRent with 4 house: $320 \nRent with Hotel: 450 \n --------------------- \nHouse cost: $50 each \nHotel cost: $50 each");
+        }
+        if (currentPlayer.getXCoordinate() == 7 && currentPlayer.getYCoordinate() == 10 ) {
+            System.out.println("You landed on Income Tax! It's tax season. Pay $200");
+        }
+        if (currentPlayer.getXCoordinate() == 6 && currentPlayer.getYCoordinate() == 10 ) {
+            System.out.println("You landed on Reading Railroad. \nRent: $25 \nIf 2 R R is owned: $50 \nIf 3: $100 \nIf 4: $200 \nMortgage Value: $100");
+        }
+        if (currentPlayer.getXCoordinate() == 6 && currentPlayer.getYCoordinate() == 10 ) {
+            System.out.println("You landed on Reading Railroad. \nRent: $25 \nIf 2 R R is owned: $50 \nIf 3: $100 \nIf 4: $200 \nMortgage Value: $100");
         }
     }
 
