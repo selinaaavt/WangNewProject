@@ -2,8 +2,8 @@ import java.awt.*;
 
 public class Grid {
     private static String[][] board;
-    private String ANSI_GREEN_BACKGROUND;
-    private String ANSI_RESET;
+    private static String ANSI_GREEN_BACKGROUND;
+    private static String ANSI_RESET;
     public Grid() {
         board = new String[11][11];
         ANSI_GREEN_BACKGROUND = "\u001B[42m";
@@ -79,6 +79,9 @@ public class Grid {
         board[8][10] = "\033[43m" + "!!" + ANSI_RESET;
         board[9][10] = "\033[0;107m" + "[]" + ANSI_RESET;
         Game newGame = new Game();
+    }
+    public static void setBoard(int x , int y, Player player) {
+        board[x][y] = ANSI_GREEN_BACKGROUND + player.getName() + ANSI_RESET;
     }
     public static void printGrid() {
         for (int i = 0; i < board.length; i++) {

@@ -1,5 +1,3 @@
-import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Game {
@@ -18,7 +16,7 @@ public class Game {
         System.out.print("Hello! Do you wish to play monopoly? y/n: ");
         String answer = scan.nextLine();
         if (answer.equals("y")) {
-            System.out.print("Enter the amount of players, including you (up to 4): ");
+            System.out.print("Enter the amount of players, including you (up to 4 and more than 1): ");
             amountOfPlayers = scan.nextInt();
         } else {
             System.out.println("Bye!");
@@ -26,7 +24,7 @@ public class Game {
         createPlayers();
     }
     public void createPlayers() {
-        while (amountOfPlayers <= 0 || amountOfPlayers > 5) {
+        while (amountOfPlayers <= 1 || amountOfPlayers > 5) {
             System.out.println("That is an invalid number of player you inserted.");
             System.out.print("Enter the amount of players: ");
             amountOfPlayers = scan.nextInt();
@@ -49,7 +47,7 @@ public class Game {
         turns();
     }
     public int rollDice() {
-        int outcome = (int) (Math.random()*6) + 1;
+        int outcome = (int) (Math.random()*12) + 1;
         return outcome;
     }
     public void turns() {
@@ -59,7 +57,41 @@ public class Game {
             int moves = rollDice();
             System.out.println(currentPlayer.getName() + " rolled " + moves + " moves! " );
             if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 10) {
-
+                if (currentPlayer.getYCoordinate() - moves >= 0) {
+                    int[] stuffs = {currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate() - moves};
+                    currentPlayer.setCoordinates(stuffs);
+                    Grid.setBoard(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate(), currentPlayer);
+                } else {
+                    int leftOvers = moves - currentPlayer.getYCoordinate();
+                    if (currentPlayer.getXCoordinate() - leftOvers >= 0) {
+                        int[] stuffs = {currentPlayer.getXCoordinate() - leftOvers, 0};
+                        currentPlayer.setCoordinates(stuffs);
+                        Grid.setBoard(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate(), currentPlayer);
+                    } else {
+                        int smth = leftOvers - currentPlayer.getXCoordinate();
+                        int[] stuffs = {0, leftOvers};
+                        currentPlayer.setCoordinates(stuffs);
+                        Grid.setBoard(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate(), currentPlayer);
+                    }
+                }
+            } else if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 0) {
+                if (currentPlayer.getYCoordinate() - moves >= 0) {
+                    int[] stuffs = {currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate() - moves};
+                    currentPlayer.setCoordinates(stuffs);
+                    Grid.setBoard(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate(), currentPlayer);
+                } else {
+                    int leftOvers = moves - currentPlayer.getYCoordinate();
+                    if (currentPlayer.getXCoordinate() - leftOvers >= 0) {
+                        int[] stuffs = {currentPlayer.getXCoordinate() - leftOvers, 0};
+                        currentPlayer.setCoordinates(stuffs);
+                        Grid.setBoard(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate(), currentPlayer);
+                    } else {
+                        int smth = leftOvers - currentPlayer.getXCoordinate();
+                        int[] stuffs = {0, leftOvers};
+                        currentPlayer.setCoordinates(stuffs);
+                        Grid.setBoard(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate(), currentPlayer);
+                    }
+                } 
             }
             Grid.printGrid();
             if (currentPlayer == player1) {

@@ -18,6 +18,9 @@ public class Player {
     public int getYCoordinate() {
         return coordinates[1];
     }
+    public void setCoordinates(int[] coordinates) {
+        this.coordinates = coordinates;
+    }
     public String getName() {
         return name;
     }
