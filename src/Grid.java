@@ -38,7 +38,7 @@ public class Grid {
         board[5][7] = " \uD835\uDD43";
         board[5][8] = " \uD835\uDD50";
         board[5][9] = " " + ANSI_RESET;
-        board[10][10] = "\u001B[47;1m" + "[]" + ANSI_RESET;
+        board[10][10] = "\u001B[47;1m" + "GO" + ANSI_RESET;
         board[10][9] = "\u001B[40;1m" + "[]" + ANSI_RESET;
         board[10][8] = "\u001B[46;1m" + "\uD83D\uDCBC" + ANSI_RESET;
         board[10][7] = "\u001B[40;1m" + "[]" + ANSI_RESET;
