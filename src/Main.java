@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Grid newGrid = new Grid();
+        MonopolyGrid newGrid = new MonopolyGrid();
         newGrid.populateGrid();
     }
 }
