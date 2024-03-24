@@ -8,6 +8,7 @@ public class Grid {
         board = new String[11][11];
         ANSI_GREEN_BACKGROUND = "\u001B[42m";
         ANSI_RESET = "\u001B[0m";
+
     }
     public  void populateGrid() {
         for (int col = 0; col < board[0].length; col++) {
@@ -78,9 +79,9 @@ public class Grid {
         board[7][10] = "\033[0;107m" + "[]" + ANSI_RESET;
         board[8][10] = "\033[43m" + "!!" + ANSI_RESET;
         board[9][10] = "\033[0;107m" + "[]" + ANSI_RESET;
-        Game newGame = new Game();
+        Game hello = new Game();
     }
-    public static void setBoard(int x , int y, Player player) {
+    public static void setPlayer(int x , int y, Player player) {
         board[x][y] = ANSI_GREEN_BACKGROUND + player.getName() + ANSI_RESET;
     }
     public static void printGrid() {

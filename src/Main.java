@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Grid newGame = new Grid();
-        newGame.populateGrid();
+        Grid newGrid = new Grid();
+        newGrid.populateGrid();
     }
 }
