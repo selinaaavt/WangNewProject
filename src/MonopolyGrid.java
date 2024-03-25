@@ -2,9 +2,8 @@ public class MonopolyGrid extends Grid {
     public MonopolyGrid(){
         super();
     }
-    @Override
     public void populateGrid() {
-        super.populateGrid();
+        super.populateGrid(getAnsiGreenBackground());
         setBoard(5, 1 ,getAnsiGreenBackground() + " M");
         setBoard(5, 2 , " \uD835\uDD46");
         setBoard(5, 3, " ℕ");

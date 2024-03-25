@@ -19,23 +19,23 @@ public class Grid {
     public static String getAnsiReset() {
         return ANSI_RESET;
     }
-    public  void populateGrid() {
+    public  void populateGrid(String color) {
         for (int col = 0; col < board[0].length; col++) {
-            board[0][col] = ANSI_GREEN_BACKGROUND + "[]" + ANSI_RESET;
+            board[0][col] = color + "[]" + ANSI_RESET;
         }
         for (int row = 0; row < board.length; row++) {
-            board[row][board[0].length -1 ] = ANSI_GREEN_BACKGROUND + "[]" + ANSI_RESET;
+            board[row][board[0].length -1 ] = color + "[]" + ANSI_RESET;
         }
         for (int row = 0; row < board.length; row++) {
-            board[row][0] = ANSI_GREEN_BACKGROUND + "[]" + ANSI_RESET;
+            board[row][0] = color + "[]" + ANSI_RESET;
         }
         for (int col = 0; col < board[0].length; col++) {
-            board[board.length -1 ][col] = ANSI_GREEN_BACKGROUND + "[]" + ANSI_RESET;
+            board[board.length -1 ][col] = color + "[]" + ANSI_RESET;
         }
         for (int i = 0; i < board.length; i++) {
             for (int x = 0; x < board[0].length; x++) {
                 if (board[i][x] == null) {
-                    board[i][x] = ANSI_GREEN_BACKGROUND + "  ";
+                    board[i][x] = color + "  ";
                 }
             }
         }
