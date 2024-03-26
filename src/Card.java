@@ -1,8 +1,17 @@
 public class Card extends Grid {
-    public Card() {
-        super.populateGrid("\e[0;107m");
+    private String white = "\u001B[46;1m";
+    public Card(int x, int y) {
+        super(x, y);
     }
-    public void populateGrid(String color) {
+    @Override
+    public void populateGrid() {
+        for (int i = 0; i < getBoard().length; i++) {
+            for (int x = 0; x < getBoard()[0].length; x++) {
+                if (getBoardString(i, x) == null) {
+                    setBoard(i, x, white + "  ");
+                }
+            }
+        }
+    }
 
-    }
 }
