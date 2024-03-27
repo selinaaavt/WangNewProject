@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class Grid {
-    private static String[][] board;
+    private String[][] board;
     private static String ANSI_GREEN_BACKGROUND;
     private static String ANSI_RESET;
     public Grid(int howMuch, int howLong) {
@@ -10,7 +10,7 @@ public class Grid {
         ANSI_RESET = "\u001B[0m";
 
     }
-    public static void setBoard(int x, int y, String s) {
+    public void setBoard(int x, int y, String s) {
         board[x][y] = s;
     }
     public static String getAnsiGreenBackground() {
@@ -40,10 +40,10 @@ public class Grid {
             }
         }
     }
-    public static void setPlayer(int x , int y, Player player) {
+    public void setPlayer(int x , int y, Player player) {
         board[y][x] = ANSI_GREEN_BACKGROUND + player.getName() + ANSI_RESET;
     }
-    public static void printGrid() {
+    public void printGrid() {
         for (int i = 0; i < board.length; i++) {
             for (int x = 0; x < board[0].length; x++) {
                 System.out.print(board[i][x]);
@@ -51,10 +51,10 @@ public class Grid {
             System.out.println();
         }
     }
-    public static String[][] getBoard() {
+    public String[][] getBoard() {
         return board;
     }
-    public static String getBoardString(int x, int y) {
+    public String getBoardString(int x, int y) {
         return board[x][y];
     }
 

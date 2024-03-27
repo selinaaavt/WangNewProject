@@ -55,7 +55,7 @@ public class MonopolyGrid extends Grid {
         setBoard(9, 10, "\033[0;107m" + "[]" + getAnsiReset());
         Game hello = new Game();
     }
-    public static void repopulate(int x , int y) {
+    public void repopulate(int x , int y) {
         if (x == 10) {
             if (y == 10 ) {
                 setBoard(10, 10,"\u001B[47;1m" + "GO" + getAnsiReset());

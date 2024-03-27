@@ -9,7 +9,9 @@ public class Game {
     private Player player3;
     private Player player4;
     private ArrayList<Player> listOfPlayers;
+    private MonopolyGrid monopolyGrid;
     public Game() {
+        monopolyGrid = new MonopolyGrid();
         scan = new Scanner(System.in);
         amountOfPlayers = 1;
         listOfPlayers = new ArrayList<>();
@@ -71,7 +73,7 @@ public class Game {
             int moves = rollDice();
             System.out.println(currentPlayer.getName() + " rolled a " + moves);
             determiningLanding(moves, currentPlayer);
-            Grid.printGrid();
+            monopolyGrid.printGrid();
             determiningOptions(currentPlayer);
             if (currentPlayer == player1) {
                 currentPlayer = player2;
@@ -357,14 +359,14 @@ public class Game {
             while (currentPlayer.getXCoordinate() != 0 && moves != 0) {
                 int remainder = moves%10;
                 if (moves > 10 || moves == 10) {
-                    Grid.setPlayer(0, 10, currentPlayer);
+                    monopolyGrid.setPlayer(0, 10, currentPlayer);
                     int[] newCoord = {0, 10};
-                    MonopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                 } else if (moves < 10) {
-                    Grid.setPlayer(10 - moves, 10, currentPlayer);
+                    monopolyGrid.setPlayer(10 - moves, 10, currentPlayer);
                     int[] newCoord = {10 - moves, 10};
-                    MonopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                     remainder = 0;
                 }
@@ -375,14 +377,14 @@ public class Game {
             while (currentPlayer.getYCoordinate() != 0 && moves != 0) {
                 int remainder = moves%10;
                 if (moves > 10 || moves == 10) {
-                    Grid.setPlayer(0, 0, currentPlayer);
+                    monopolyGrid.setPlayer(0, 0, currentPlayer);
                     int[] newCoord = {0, 0};
-                     MonopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                     monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                 } else if (moves < 10) {
-                    Grid.setPlayer(0, 10 - moves, currentPlayer);
+                    monopolyGrid.setPlayer(0, 10 - moves, currentPlayer);
                     int[] newCoord = {0, 10 - moves};
-                    MonopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                     remainder = 0;
                 }
@@ -393,14 +395,14 @@ public class Game {
             while (currentPlayer.getXCoordinate() != 10 && moves != 0) {
                 int remainder = moves%10;
                 if (moves > 10 || moves == 10) {
-                    Grid.setPlayer(10, 0, currentPlayer);
+                    monopolyGrid.setPlayer(10, 0, currentPlayer);
                     int[] newCoord = {10, 0};
-                    MonopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                 } else if (moves < 10) {
-                    Grid.setPlayer(moves, 0, currentPlayer);
+                    monopolyGrid.setPlayer(moves, 0, currentPlayer);
                     int[] newCoord = {moves, 0};
-                    MonopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                     remainder = 0;
                 }
@@ -411,14 +413,14 @@ public class Game {
             while (currentPlayer.getXCoordinate() != 10 && moves != 0) {
                 int remainder = moves%10;
                 if (moves > 10 || moves == 10) {
-                    Grid.setPlayer(10, 10, currentPlayer);
+                    monopolyGrid.setPlayer(10, 10, currentPlayer);
                     int[] newCoord = {10, 10};
-                    MonopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                 } else if (moves < 10) {
-                    Grid.setPlayer(10, moves, currentPlayer);
+                    monopolyGrid.setPlayer(10, moves, currentPlayer);
                     int[] newCoord = {10, moves};
-                    MonopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                     remainder = 0;
                 }
