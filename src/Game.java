@@ -12,10 +12,13 @@ public class Game {
     private MonopolyGrid monopolyGrid;
     public Game() {
         monopolyGrid = new MonopolyGrid();
+        monopolyGrid.populateGrid();
         scan = new Scanner(System.in);
         amountOfPlayers = 1;
         listOfPlayers = new ArrayList<>();
         play();
+        createPlayers();
+
     }
     public void play() {
         System.out.print("Hello! Do you wish to play monopoly? y/n: ");
@@ -26,7 +29,6 @@ public class Game {
         } else {
             System.out.println("Bye!");
         }
-        createPlayers();
     }
     public void createPlayers() {
         while (amountOfPlayers <= 1 || amountOfPlayers > 5) {

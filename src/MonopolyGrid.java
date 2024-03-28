@@ -3,7 +3,7 @@ public class MonopolyGrid extends Grid {
         super(11, 11);
     }
     public void populateGrid() {
-        super.populateGrid();
+        super.populateGrid(getAnsiGreenBackground());
         setBoard(5, 1 ,getAnsiGreenBackground() + " M");
         setBoard(5, 2 , " \uD835\uDD46");
         setBoard(5, 3, " ℕ");
@@ -53,7 +53,6 @@ public class MonopolyGrid extends Grid {
         setBoard(7, 10, "\033[0;107m" + "[]" + getAnsiReset());
         setBoard(8, 10, "\033[43m" + "!!" + getAnsiReset() );
         setBoard(9, 10, "\033[0;107m" + "[]" + getAnsiReset());
-        Game hello = new Game();
     }
     public void repopulate(int x , int y) {
         if (x == 10) {

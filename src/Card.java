@@ -3,7 +3,6 @@ public class Card extends Grid {
     public Card(int x, int y) {
         super(x, y);
     }
-    @Override
     public void populateGrid() {
         for (int i = 0; i < getBoard().length; i++) {
             for (int x = 0; x < getBoard()[0].length; x++) {
