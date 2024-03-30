@@ -92,19 +92,22 @@ public class Game {
         if (currentPlayer.getXCoordinate() == 9 && currentPlayer.getYCoordinate() == 10 ) {
             System.out.println("You landed on Mediterranean Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $2 \nRent with Color set: $4 \nRent with 1 house: $10 \nRent with 2 house: $30 + \nRent with 3 house: $90 \nRent with 4 house: $160 \nRent with Hotel: $250 \n --------------------- \nHouse cost: $50 each \nHotel cost: $50 each.");
-                System.out.print("To purchase this, pay $60.  Yes or no? ");
+                HouseCard hello = new HouseCard(13, 24,"\u001B[40;1m", "\n  Mediterranean Avenue\nRent:               $2 \nRent w Color set:   $4 \nRent with 1 ⌂:      $10 \nRent with 2 ⌂:      $30 \nRent with 3 ⌂:      $90 \nRent with 4 ⌂:      $160 \nRent with hotel:    $250 \n------------------------ \n⌂ cost:         $50 each \nHotel cost:     $50 each");
+                hello.populateGrid();
+                hello.printGrid();
+                System.out.print("To purchase this, pay $60. Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 8 && currentPlayer.getYCoordinate() == 10 ) {
             System.out.println("You landed on Community Chest.");
             chest();
         }
-
         if (currentPlayer.getXCoordinate() == 7 && currentPlayer.getYCoordinate() == 10 ) {
             System.out.println("You landed on Baltic Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent: $4 \nRent with Color set: $8 \nRent with 1 house: $20 \nRent with 2 house: $60 + \nRent with 3 house: $180 \nRent with 4 house: $320 \nRent with Hotel: $450 \n --------------------- \nHouse cost: $50 each \nHotel cost: $50 each");
+                HouseCard hello = new HouseCard(13, 24,"\u001B[40;1m", "\n     Baltic Avenue\nRent:               $4 \nRent w Color set:   $8 \nRent with 1 ⌂:      $20 \nRent with 2 ⌂:      $60 \nRent with 3 ⌂:      $180 \nRent with 4 ⌂:      $320 \nRent with hotel:    $450 \n------------------------ \n⌂ cost:         $50 each \nHotel cost:     $50 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $60.  Yes or no? ");
             }
         }
@@ -114,15 +117,22 @@ public class Game {
         if (currentPlayer.getXCoordinate() == 5 && currentPlayer.getYCoordinate() == 10 ) {
             System.out.println("You landed on Reading Railroad.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent: $25 \nIf 2 R R is owned: $50 \nIf 3: $100 \nIf 4: $200 \nMortgage Value: $100");
-                System.out.print("To purchase this, pay $200.  Yes or no? ");
+                RailroadCard hello = new RailroadCard(13, 28,"\033[0;107m", "\n     ╭━ ♥━ ♥━ ♥━ ♥━\n" +
+                        "     ╰╮┏┳┳┳┓┏┳┳┳┳┓\n" +
+                        "     ┏┻╋╋┻┻┫┣┻╋╋┻┫\n" +
+                        "     ┗ⓞ┻┻━ⓞ┻┻ⓞ┻┻▄ ▄     \n------Reading Railroad------\n    Rent: $25 \n    If 2 RR is owned: $50 \n    If 3: $100 \n    If 4: $200 \n    Mortgage Value: $100");
+                hello.populateGrid();
+                hello.printGrid();
+                System.out.print("To purchase this, pay $200. Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 4 && currentPlayer.getYCoordinate() == 10 ) {
             System.out.println("You landed on Oriental Avenue. ");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $6 \nRent with Color set: $12 \nRent with 1 house: $30 \nRent with 2 house: $90 + \nRent with 3 house: $270 \nRent with 4 house: $400 \nRent with Hotel: $550 \n --------------------- \nHouse cost: $50 each \nHotel cost: $50 each");
-                System.out.print("To purchase this, pay $100.  Yes or no? ");
+                HouseCard hello = new HouseCard(13, 24,"\u001B[44;1m", "\n    Oriental Avenue \nRent:               $6 \nRent w Color set:   $12 \nRent with 1 ⌂:      $30 \nRent with 2 ⌂:      $90 \nRent with 3 ⌂:      $270 \nRent with 4 ⌂:      $400 \nRent with hotel:    $550 \n------------------------ \n⌂ cost:         $50 each \nHotel cost:     $50 each");
+                hello.populateGrid();
+                hello.printGrid();
+                System.out.print("To purchase this, pay $100. Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 3 && currentPlayer.getYCoordinate() == 10 ) {
@@ -132,14 +142,18 @@ public class Game {
         if (currentPlayer.getXCoordinate() == 2 && currentPlayer.getYCoordinate() == 10 ) {
             System.out.println("You landed on Vermont Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println(" \nRent:  $6 \nRent with Color set: $12 \nRent with 1 house: $30 \nRent with 2 house: $90 + \nRent with 3 house: $270 \nRent with 4 house: $400 \nRent with Hotel: $550 \n --------------------- \nHouse cost: $50 each \nHotel cost: $50 each");
+                HouseCard hello = new HouseCard(13, 24,"\u001B[44;1m", "\n     Vermont Avenue\nRent:               $6 \nRent w Color set:   $12 \nRent with 1 ⌂:      $30 \nRent with 2 ⌂:      $90 \nRent with 3 ⌂:      $270 \nRent with 4 ⌂:      $400 \nRent with hotel:    $550 \n------------------------ \n⌂ cost:         $50 each \nHotel cost:     $50 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $100.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 1 && currentPlayer.getYCoordinate() == 10 ) {
-            System.out.println("You landed on Connecticut Avenue. \nRent:  $8 \nRent with Color set: $16 \nRent with 1 house: $40 \nRent with 2 house: $100 + \nRent with 3 house: $300 \nRent with 4 house: $450 \nRent with Hotel: $600 \n --------------------- \nHouse cost: $50 each \nHotel cost: $50 each");
+            System.out.println("You landed on Connecticut Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println(" \nRent:  $6 \nRent with Color set: $12 \nRent with 1 house: $30 \nRent with 2 house: $90 + \nRent with 3 house: $270 \nRent with 4 house: $400 \nRent with Hotel: $550 \n --------------------- \nHouse cost: $50 each \nHotel cost: $50 each");
+                HouseCard hello = new HouseCard(13, 24,"\u001B[44;1m", "\n   Connecticut Avenue\nRent:               $8 \nRent w Color set:   $16 \nRent with 1 ⌂:      $40 \nRent with 2 ⌂:      $100 \nRent with 3 ⌂:      $300 \nRent with 4 ⌂:      $450 \nRent with hotel:    $600 \n------------------------ \n⌂ cost:         $50 each \nHotel cost:     $50 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $100.  Yes or no? ");
             }
         }
@@ -149,42 +163,57 @@ public class Game {
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 9 ) {
             System.out.println("You landed on St. Charles Place. ");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $10 \nRent with Color set: $20 \nRent with 1 house: $50 \nRent with 2 house: $150 + \nRent with 3 house: $450 \\nRent with 4 house: $625 \nRent with Hotel: $750 \n --------------------- \nHouse cost: $100 each \nHotel cost: $100 each");
+                HouseCard hello = new HouseCard(13, 24,"\u001B[45;1m", "\n   St. Charles Place \nRent:               $10 \nRent w Color set:   $20 \nRent with 1 ⌂:      $50 \nRent with 2 ⌂:      $150 \nRent with 3 ⌂:      $450 \nRent with 4 ⌂:      $625 \nRent with hotel:    $750 \n------------------------ \n⌂ cost:        $100 each \nHotel cost:    $100 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $140.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 8 ) {
             System.out.println("You landed on Electric company.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("If one utility is owned, rent is 4 times amount shown on dice. \nIf both utilities are owned, rent is 10 times shown on the dice");
+                RailroadCard hello = new RailroadCard(9, 37,"\033[0;107m", "\n-----------Electric company--------------- \n \nIf one utility is owned, \nrent is 4 times amount shown on dice. \n\nIf both utilities are owned,\nrent is 10 times shown on the dice.");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this utility, pay $150.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 7 ) {
             System.out.println("You landed on States Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $10 \nRent with Color set: $20 \nRent with 1 house: $50 \nRent with 2 house: $150 + \nRent with 3 house: $450 \\nRent with 4 house: $625 \nRent with Hotel: $750 \n --------------------- \nHouse cost: $100 each \nHotel cost: $100 each");
+                HouseCard hello = new HouseCard(13, 24,"\u001B[45;1m", "\n      States Avenue \nRent:               $10 \nRent w Color set:   $20 \nRent with 1 ⌂:      $50 \nRent with 2 ⌂:      $150 \nRent with 3 ⌂:      $450 \nRent with 4 ⌂:      $625 \nRent with hotel:    $750 \n------------------------ \n⌂ cost:        $100 each \nHotel cost:    $100 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $140.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 6 ) {
             System.out.println("You landed on Virginia Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $12 \nRent with Color set: $24 \nRent with 1 house: $60 \nRent with 2 house: $180 + \nRent with 3 house: $500 \\nRent with 4 house: $700 \nRent with Hotel: $900 \n --------------------- \nHouse cost: $100 each \nHotel cost: $100 each");
+                HouseCard hello = new HouseCard(13, 24,"\u001B[45;1m", "\n     Virginia Avenue \nRent:               $12 \nRent w Color set:   $24 \nRent with 1 ⌂:      $60 \nRent with 2 ⌂:      $180 \nRent with 3 ⌂:      $500 \nRent with 4 ⌂:      $700 \nRent with hotel:    $900 \n------------------------ \n⌂ cost:        $100 each \nHotel cost:    $100 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $160.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 5 && currentPlayer.getYCoordinate() == 5 ) {
             System.out.println("You landed on Pennsylvania Railroad.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent: $25 \nIf 2 R R is owned: $50 \nIf 3: $100 \nIf 4: $200 \nMortgage Value: $100");
-                System.out.print("To purchase this, pay $200.  Yes or no? ");
+                RailroadCard hello = new RailroadCard(13, 29,"\033[0;107m", "\n     ╭━ ♥━ ♥━ ♥━ ♥━\n" +
+                        "     ╰╮┏┳┳┳┓┏┳┳┳┳┓\n" +
+                        "     ┏┻╋╋┻┻┫┣┻╋╋┻┫\n" +
+                        "     ┗ⓞ┻┻━ⓞ┻┻ⓞ┻┻▄ ▄     \n----Pennsylvania Railroad------\n     Rent: $25 \n     If 2 RR is owned: $50 \n     If 3: $100 \n     If 4: $200 \n     Mortgage Value: $100");
+                hello.populateGrid();
+                hello.printGrid();
+                System.out.print("To purchase this, pay $200. Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 4 ) {
             System.out.println("You landed on St. James Place.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $14 \nRent with Color set: $28 \nRent with 1 house: $70 \nRent with 2 house: $200 + \nRent with 3 house: $550 \\nRent with 4 house: $750 \nRent with Hotel: $950 \n --------------------- \nHouse cost: $100 each \nHotel cost: $100 each");
+                HouseCard hello = new HouseCard(13, 24,"\033[0;106m", "\n    St. James Place \nRent:               $14 \nRent w Color set:   $28 \nRent with 1 ⌂:      $70 \nRent with 2 ⌂:      $200 \nRent with 3 ⌂:      $550 \nRent with 4 ⌂:      $750 \nRent with hotel:    $950 \n------------------------ \n⌂ cost:        $100 each \nHotel cost:    $100 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $180.  Yes or no? ");
             }
         }
@@ -195,31 +224,30 @@ public class Game {
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 2 ) {
             System.out.println("You landed on Tennessee Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $12 \nRent with Color set: $24 \nRent with 1 house: $60 \nRent with 2 house: $180 + \nRent with 3 house: $500 \\nRent with 4 house: $700 \nRent with Hotel: $900 \n --------------------- \nHouse cost: $100 each \nHotel cost: $100 each");
+                HouseCard hello = new HouseCard(13, 25,"\033[0;106m", "\n    Tennessee Avenue \nRent:               $12 \nRent w Color set:   $24 \nRent with 1 ⌂:      $60 \nRent with 2 ⌂:      $180 \nRent with 3 ⌂:      $500 \nRent with 4 ⌂:      $700 \nRent with hotel:    $900 \n------------------------- \n⌂ cost:        $100 each \nHotel cost:    $100 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $180.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 1 ) {
             System.out.println("You landed on New York Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $16 \nRent with Color set: $32 \nRent with 1 house: $80 \nRent with 2 house: $220 + \nRent with 3 house: $600 \\nRent with 4 house: $800 \nRent with Hotel: $1000 \n --------------------- \nHouse cost: $100 each \nHotel cost: $100 each");
+                HouseCard hello = new HouseCard(13, 25,"\033[0;106m", "\n     New York Avenue \nRent:               $16 \nRent w Color set:   $32 \nRent with 1 ⌂:      $80 \nRent with 2 ⌂:      $220 \nRent with 3 ⌂:      $600 \nRent with 4 ⌂:      $800 \nRent with hotel:    $1000 \n------------------------- \n⌂ cost:         $100 each \nHotel cost:     $100 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $200.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 0 ) {
             System.out.println("You landed on Free Parking.");
         }
-        if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 2 ) {
-            System.out.println("You landed on New York Avenue.");
-            if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $16 \nRent with Color set: $32 \nRent with 1 house: $80 \nRent with 2 house: $220 + \nRent with 3 house: $600 \\nRent with 4 house: $800 \nRent with Hotel: $1000 \n --------------------- \nHouse cost: $100 each \nHotel cost: $100 each");
-                System.out.print("To purchase this, pay $200.  Yes or no? ");
-            }
-        }
         if (currentPlayer.getXCoordinate() == 1 && currentPlayer.getYCoordinate() == 0 ) {
             System.out.println("You landed on Kentucky Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $18 \nRent with Color set: $36 \nRent with 1 house: $90 \nRent with 2 house: $250 + \nRent with 3 house: $700 \\nRent with 4 house: $875 \nRent with Hotel: $1050 \n --------------------- \nHouse cost: $150 each \nHotel cost: $150 each");
+                HouseCard hello = new HouseCard(13, 25,"\033[0;101m", "\n     Kentucky Avenue \nRent:               $18 \nRent w Color set:   $36 \nRent with 1 ⌂:      $90 \nRent with 2 ⌂:      $250 \nRent with 3 ⌂:      $700 \nRent with 4 ⌂:      $875 \nRent with hotel:    $1050 \n------------------------- \n⌂ cost:         $150 each \nHotel cost:     $150 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $220.  Yes or no? ");
             }
         }
@@ -230,49 +258,66 @@ public class Game {
         if (currentPlayer.getXCoordinate() == 3 && currentPlayer.getYCoordinate() == 0 ) {
             System.out.println("You landed on Indiana Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $18 \nRent with Color set: $36 \nRent with 1 house: $90 \nRent with 2 house: $250 + \nRent with 3 house: $700 \\nRent with 4 house: $875 \nRent with Hotel: $1050 \n --------------------- \nHouse cost: $150 each \nHotel cost: $150 each");
+                HouseCard hello = new HouseCard(13, 25,"\033[0;101m", "\n      Indiana Avenue \nRent:               $18 \nRent w Color set:   $36 \nRent with 1 ⌂:      $90 \nRent with 2 ⌂:      $250 \nRent with 3 ⌂:      $700 \nRent with 4 ⌂:      $875 \nRent with hotel:    $1050 \n------------------------- \n⌂ cost:         $150 each \nHotel cost:     $150 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $220.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 4 && currentPlayer.getYCoordinate() == 0 ) {
             System.out.println("You landed on Illinois Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $20 \nRent with Color set: $40 \nRent with 1 house: $100 \nRent with 2 house: $300 + \nRent with 3 house: $750 \\nRent with 4 house: $925 \nRent with Hotel: $1100 \n --------------------- \nHouse cost: $150 each \nHotel cost: $150 each");
+                HouseCard hello = new HouseCard(13, 25,"\033[0;101m", "\n     Illinois Avenue \nRent:               $20 \nRent w Color set:   $40 \nRent with 1 ⌂:      $100 \nRent with 2 ⌂:      $300 \nRent with 3 ⌂:      $750 \nRent with 4 ⌂:      $925 \nRent with hotel:    $1100 \n------------------------- \n⌂ cost:         $150 each \nHotel cost:     $150 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $240.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 5 && currentPlayer.getYCoordinate() == 0) {
             System.out.println("You landed on B. & O. Railroad.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent: $25 \nIf 2 R R is owned: $50 \nIf 3: $100 \nIf 4: $200 \nMortgage Value: $100");
+                RailroadCard hello = new RailroadCard(13, 27,"\033[0;107m", "\n     ╭━ ♥━ ♥━ ♥━ ♥━\n" +
+                        "     ╰╮┏┳┳┳┓┏┳┳┳┳┓\n" +
+                        "     ┏┻╋╋┻┻┫┣┻╋╋┻┫\n" +
+                        "     ┗ⓞ┻┻━ⓞ┻┻ⓞ┻┻▄ ▄     \n-----B. & O. Railroad------\n    Rent: $25 \n    If 2 RR is owned: $50 \n    If 3: $100 \n    If 4: $200 \n    Mortgage Value: $100");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $200.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 6 && currentPlayer.getYCoordinate() == 0 ) {
             System.out.println("You landed on Atlantic Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $22 \nRent with Color set: $44 \nRent with 1 house: $110 \nRent with 2 house: $330 + \nRent with 3 house: $800 \\nRent with 4 house: $975 \nRent with Hotel: $1150 \n --------------------- \nHouse cost: $150 each \nHotel cost: $150 each");
+                HouseCard hello = new HouseCard(13, 25,"\033[0;103m", "\n     Atlantic Avenue \nRent:               $22 \nRent w Color set:   $44 \nRent with 1 ⌂:      $110 \nRent with 2 ⌂:      $330 \nRent with 3 ⌂:      $800 \nRent with 4 ⌂:      $975 \nRent with hotel:    $1150 \n------------------------- \n⌂ cost:         $150 each \nHotel cost:     $150 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $260.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 7 && currentPlayer.getYCoordinate() == 0 ) {
             System.out.println("You landed on Ventnor Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $22 \nRent with Color set: $44 \nRent with 1 house: $110 \nRent with 2 house: $330 + \nRent with 3 house: $800 \\nRent with 4 house: $975 \nRent with Hotel: $1150 \n --------------------- \nHouse cost: $150 each \nHotel cost: $150 each");
+                HouseCard hello = new HouseCard(13, 25,"\033[0;103m", "\n     Ventnor Avenue \nRent:               $22 \nRent w Color set:   $44 \nRent with 1 ⌂:      $110 \nRent with 2 ⌂:      $330 \nRent with 3 ⌂:      $800 \nRent with 4 ⌂:      $975 \nRent with hotel:    $1150 \n------------------------- \n⌂ cost:         $150 each \nHotel cost:     $150 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $260.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 8 && currentPlayer.getYCoordinate() == 0 ) {
             System.out.println("You landed on Water Works.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("If one utility is owned, rent is 4 times amount shown on dice. \nIf both utilities are owned, rent is 10 times shown on the dice");
+                RailroadCard hello = new RailroadCard(9, 37,"\033[0;107m", "\n-------------Water Works--------------- \n \nIf one utility is owned, \nrent is 4 times amount shown on dice. \n\nIf both utilities are owned,\nrent is 10 times shown on the dice.");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this utility, pay $150.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 9 && currentPlayer.getYCoordinate() == 0 ) {
             System.out.println("You landed on Marvin Gardens.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $24 \nRent with Color set: $48 \nRent with 1 house: $120 \nRent with 2 house: $360 + \nRent with 3 house: $850 \\nRent with 4 house: $1025 \nRent with Hotel: $1200 \n --------------------- \nHouse cost: $150 each \nHotel cost: $150 each");
+                HouseCard hello = new HouseCard(13, 25,"\033[0;103m", "\n     Marvin Gardens \nRent:               $24 \nRent w Color set:   $48 \nRent with 1 ⌂:      $120 \nRent with 2 ⌂:      $360 \nRent with 3 ⌂:      $850 \nRent with 4 ⌂:      $1025 \nRent with hotel:    $1200 \n------------------------- \n⌂ cost:         $150 each \nHotel cost:     $150 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $280.  Yes or no? ");
             }
         }
@@ -282,14 +327,18 @@ public class Game {
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 1 ) {
             System.out.println("You landed on Pacific avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $26 \nRent with Color set: $52 \nRent with 1 house: $130 \nRent with 2 house: $390 + \nRent with 3 house: $900 \\nRent with 4 house: $1100 \nRent with Hotel: $1275 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                HouseCard hello = new HouseCard(10, 20,"\u001B[46;1m", "\nRent:  $26 \nRent with Color set: $52 \nRent with 1 house: $130 \nRent with 2 house: $390 + \nRent with 3 house: $900 \nRent with 4 house: $1100 \nRent with Hotel: $1275 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $300.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 2 ) {
             System.out.println("You landed on North Carolina Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $26 \nRent with Color set: $52 \nRent with 1 house: $130 \nRent with 2 house: $390 + \nRent with 3 house: $900 \\nRent with 4 house: $1100 \nRent with Hotel: $1275 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                HouseCard hello = new HouseCard(10, 20,"\u001B[46;1m", "\nRent:  $26 \nRent with Color set: $52 \nRent with 1 house: $130 \nRent with 2 house: $390 + \nRent with 3 house: $900 \nRent with 4 house: $1100 \nRent with Hotel: $1275 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $300.  Yes or no? ");
             }
         }
@@ -300,14 +349,21 @@ public class Game {
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 4 ) {
             System.out.println("You landed on North Carolina Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $28 \nRent with Color set: $56 \nRent with 1 house: $150 \nRent with 2 house: $450 + \nRent with 3 house: $1000 \\nRent with 4 house: $1200 \nRent with Hotel: $1400 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                HouseCard hello = new HouseCard(10, 20,"\u001B[46;1m", "\nRent:  $28 \nRent with Color set: $56 \nRent with 1 house: $150 \nRent with 2 house: $450 + \nRent with 3 house: $1000 \nRent with 4 house: $1200 \nRent with Hotel: $1400 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $320.  Yes or no? ");
             }
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 5 ) {
             System.out.println("You landed on Short line.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent: $25 \nIf 2 R R is owned: $50 \nIf 3: $100 \nIf 4: $200 \nMortgage Value: $100");
+                RailroadCard hello = new RailroadCard(13, 27,"\033[0;107m", "\n     ╭━ ♥━ ♥━ ♥━ ♥━\n" +
+                        "     ╰╮┏┳┳┳┓┏┳┳┳┳┓\n" +
+                        "     ┏┻╋╋┻┻┫┣┻╋╋┻┫\n" +
+                        "     ┗ⓞ┻┻━ⓞ┻┻ⓞ┻┻▄ ▄     \n--------Short Line---------\n    Rent: $25 \n    If 2 RR is owned: $50 \n    If 3: $100 \n    If 4: $200 \n    Mortgage Value: $100");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $200.  Yes or no? ");
             }
         }
@@ -318,7 +374,9 @@ public class Game {
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 7 ) {
             System.out.println("You landed on Park Place.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $35 \nRent with Color set: $70 \nRent with 1 house: $175 \nRent with 2 house: $500 + \nRent with 3 house: $1100 \\nRent with 4 house: $1300 \nRent with Hotel: $1500 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                HouseCard hello = new HouseCard(10, 20,"\u001B[46;1m", "\nRent:  $35 \nRent with Color set: $70 \nRent with 1 house: $175 \nRent with 2 house: $500 + \nRent with 3 house: $1100 \nRent with 4 house: $1300 \nRent with Hotel: $1500 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $350.  Yes or no? ");
             }
         }
@@ -328,7 +386,9 @@ public class Game {
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 9 ) {
             System.out.println("You landed on Broadwalk.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                System.out.println("\nRent:  $50 \nRent with Color set: $100 \nRent with 1 house: $200 \nRent with 2 house: $600 + \nRent with 3 house: $1400 \\nRent with 4 house: $1700 \nRent with Hotel: $2000 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                HouseCard hello = new HouseCard(10, 20,"\u001B[46;1m", "\nRent:  $50 \nRent with Color set: $100 \nRent with 1 house: $200 \nRent with 2 house: $600 + \nRent with 3 house: $1400 \nRent with 4 house: $1700 \nRent with Hotel: $2000 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                hello.populateGrid();
+                hello.printGrid();
                 System.out.print("To purchase this, pay $400.  Yes or no? ");
             }
         }

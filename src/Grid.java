@@ -54,6 +54,9 @@ public class Grid {
     public String[][] getBoard() {
         return board;
     }
+    public int getRowLength() {
+        return board[0].length;
+    }
     public String getBoardString(int x, int y) {
         return board[x][y];
     }
