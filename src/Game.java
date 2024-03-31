@@ -30,6 +30,7 @@ public class Game {
             scan.nextLine();
         } else {
             System.out.println("Bye!");
+            System.exit(0);
         }
     }
     public void createPlayers() {
@@ -37,8 +38,8 @@ public class Game {
             System.out.println("That is an invalid number of player you inserted.");
             System.out.print("Enter the amount of players: ");
             amountOfPlayers = scan.nextInt();
-            scan.nextLine();
         }
+        scan.nextLine();
         if (amountOfPlayers == 1) {
             player1 = new Player("P1");
             listOfPlayers.add(player1);
@@ -647,76 +648,78 @@ public class Game {
         }
     }
     public void determiningLanding(int moves, Player currentPlayer) {
-        if (currentPlayer.getYCoordinate() == 10) {
-            while (currentPlayer.getXCoordinate() != 0 && moves != 0) {
-                int remainder = moves - currentPlayer.getXCoordinate();
-                if (moves > currentPlayer.getXCoordinate() || moves == currentPlayer.getXCoordinate()) {
-                    monopolyGrid.setPlayer(0, 10, currentPlayer);
-                    int[] newCoord = {0, 10};
-                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
-                    currentPlayer.setCoordinates(newCoord);
-                } else if (moves < currentPlayer.getXCoordinate()) {
-                    monopolyGrid.setPlayer(currentPlayer.getXCoordinate() - moves , 10, currentPlayer);
-                    int[] newCoord = {currentPlayer.getXCoordinate() - moves , 10};
-                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
-                    currentPlayer.setCoordinates(newCoord);
-                    remainder = 0;
+        while (moves != 0 ) {
+            if (currentPlayer.getYCoordinate() == 10) {
+                while (currentPlayer.getXCoordinate() != 0 && moves != 0) {
+                    int remainder = moves - currentPlayer.getXCoordinate();
+                    if (moves > currentPlayer.getXCoordinate() || moves == currentPlayer.getXCoordinate()) {
+                        monopolyGrid.setPlayer(0, 10, currentPlayer);
+                        int[] newCoord = {0, 10};
+                        monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                        currentPlayer.setCoordinates(newCoord);
+                    } else if (moves < currentPlayer.getXCoordinate()) {
+                        monopolyGrid.setPlayer(currentPlayer.getXCoordinate() - moves , 10, currentPlayer);
+                        int[] newCoord = {currentPlayer.getXCoordinate() - moves , 10};
+                        monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                        currentPlayer.setCoordinates(newCoord);
+                        remainder = 0;
+                    }
+                    moves = remainder;
                 }
-                moves = remainder;
             }
-        }
-        if (currentPlayer.getXCoordinate() == 0) {
-            while (currentPlayer.getYCoordinate() != 0 && moves != 0) {
-                int remainder = moves - currentPlayer.getYCoordinate();
-                if (moves > currentPlayer.getYCoordinate() || moves == currentPlayer.getYCoordinate()) {
-                    monopolyGrid.setPlayer(0, 0, currentPlayer);
-                    int[] newCoord = {0, 0};
-                     monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
-                    currentPlayer.setCoordinates(newCoord);
-                } else if (moves < currentPlayer.getYCoordinate()) {
-                    monopolyGrid.setPlayer(0, currentPlayer.getYCoordinate() - moves, currentPlayer);
-                    int[] newCoord = {0, currentPlayer.getYCoordinate() - moves};
-                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
-                    currentPlayer.setCoordinates(newCoord);
-                    remainder = 0;
+            if (currentPlayer.getXCoordinate() == 0) {
+                while (currentPlayer.getYCoordinate() != 0 && moves != 0) {
+                    int remainder = moves - currentPlayer.getYCoordinate();
+                    if (moves > currentPlayer.getYCoordinate() || moves == currentPlayer.getYCoordinate()) {
+                        monopolyGrid.setPlayer(0, 0, currentPlayer);
+                        int[] newCoord = {0, 0};
+                        monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                        currentPlayer.setCoordinates(newCoord);
+                    } else if (moves < currentPlayer.getYCoordinate()) {
+                        monopolyGrid.setPlayer(0, currentPlayer.getYCoordinate() - moves, currentPlayer);
+                        int[] newCoord = {0, currentPlayer.getYCoordinate() - moves};
+                        monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                        currentPlayer.setCoordinates(newCoord);
+                        remainder = 0;
+                    }
+                    moves = remainder;
                 }
-                moves = remainder;
             }
-        }
-        if (currentPlayer.getYCoordinate() == 0) {
-            while (currentPlayer.getXCoordinate() != 10 && moves != 0) {
-                int remainder = moves -( 10 - currentPlayer.getXCoordinate() );
-                if (moves > ( 10 - currentPlayer.getXCoordinate())  || moves == ( 10 - currentPlayer.getXCoordinate())) {
-                    monopolyGrid.setPlayer(10, 0, currentPlayer);
-                    int[] newCoord = {10, 0};
-                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
-                    currentPlayer.setCoordinates(newCoord);
-                } else if (moves < ( 10 - currentPlayer.getXCoordinate())) {
-                    monopolyGrid.setPlayer(moves + currentPlayer.getXCoordinate(), 0, currentPlayer);
-                    int[] newCoord = {moves + currentPlayer.getXCoordinate(), 0};
-                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
-                    currentPlayer.setCoordinates(newCoord);
-                    remainder = 0;
+            if (currentPlayer.getYCoordinate() == 0) {
+                while (currentPlayer.getXCoordinate() != 10 && moves != 0) {
+                    int remainder = moves -( 10 - currentPlayer.getXCoordinate() );
+                    if (moves > ( 10 - currentPlayer.getXCoordinate())  || moves == ( 10 - currentPlayer.getXCoordinate())) {
+                        monopolyGrid.setPlayer(10, 0, currentPlayer);
+                        int[] newCoord = {10, 0};
+                        monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                        currentPlayer.setCoordinates(newCoord);
+                    } else if (moves < ( 10 - currentPlayer.getXCoordinate())) {
+                        monopolyGrid.setPlayer(moves + currentPlayer.getXCoordinate(), 0, currentPlayer);
+                        int[] newCoord = {moves + currentPlayer.getXCoordinate(), 0};
+                        monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                        currentPlayer.setCoordinates(newCoord);
+                        remainder = 0;
+                    }
+                    moves = remainder;
                 }
-                moves = remainder;
             }
-        }
-        if (currentPlayer.getXCoordinate() == 10) {
-            while (currentPlayer.getYCoordinate() != 10 && moves != 0) {
-                int remainder = moves - (10 - currentPlayer.getYCoordinate() );
-                if (moves > ( 10 - currentPlayer.getYCoordinate() ) || moves == ( 10 - currentPlayer.getYCoordinate() ) ) {
-                    monopolyGrid.setPlayer(10, 10, currentPlayer);
-                    int[] newCoord = {10, 10};
-                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
-                    currentPlayer.setCoordinates(newCoord);
-                } else if (moves < 10) {
-                    monopolyGrid.setPlayer(10, moves + currentPlayer.getYCoordinate(), currentPlayer);
-                    int[] newCoord = {10 , moves + currentPlayer.getYCoordinate()};
-                    monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
-                    currentPlayer.setCoordinates(newCoord);
-                    remainder = 0;
+            if (currentPlayer.getXCoordinate() == 10) {
+                while (currentPlayer.getYCoordinate() != 10 && moves != 0) {
+                    int remainder = moves - (10 - currentPlayer.getYCoordinate() );
+                    if (moves > ( 10 - currentPlayer.getYCoordinate() ) || moves == ( 10 - currentPlayer.getYCoordinate() ) ) {
+                        monopolyGrid.setPlayer(10, 10, currentPlayer);
+                        int[] newCoord = {10, 10};
+                        monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                        currentPlayer.setCoordinates(newCoord);
+                    } else if (moves < 10) {
+                        monopolyGrid.setPlayer(10, moves + currentPlayer.getYCoordinate(), currentPlayer);
+                        int[] newCoord = {10 , moves + currentPlayer.getYCoordinate()};
+                        monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+                        currentPlayer.setCoordinates(newCoord);
+                        remainder = 0;
+                    }
+                    moves = remainder;
                 }
-                moves = remainder;
             }
         }
     }
