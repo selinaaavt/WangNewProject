@@ -711,7 +711,7 @@ public class Game {
                     currentPlayer.setCoordinates(newCoord);
                 } else if (moves < 10) {
                     monopolyGrid.setPlayer(10, moves + currentPlayer.getYCoordinate(), currentPlayer);
-                    int[] newCoord = {10 + currentPlayer.getYCoordinate(), moves};
+                    int[] newCoord = {10 , moves + currentPlayer.getYCoordinate()};
                     monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                     remainder = 0;
