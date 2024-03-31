@@ -97,7 +97,7 @@ public class Game {
         }
     }
     public void determiningOptions(Player currentPlayer) {
-        String answer = scan.nextLine();
+        String okie = scan.nextLine();
         if (currentPlayer.getXCoordinate() == 9 && currentPlayer.getYCoordinate() == 10 ) {
             System.out.println("You landed on Mediterranean Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
@@ -105,8 +105,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $60. Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(60);
                     int[] coordinates = {9, 10};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -126,8 +126,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $60.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(60);
                     int[] coordinates = {7, 10};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -149,8 +149,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $200. Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(200);
                     int[] coordinates = {5, 10};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -166,8 +166,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $100. Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(100);
                     int[] coordinates = {4, 10};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -187,8 +187,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $100.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(100);
                     int[] coordinates = {2, 10};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -204,8 +204,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $100.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(100);
                     int[] coordinates = {1, 10};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -224,8 +224,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $140.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(140);
                     int[] coordinates = {0, 10};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -241,8 +241,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this utility, pay $150.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(150);
                     int[] coordinates = {0, 8};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -258,8 +258,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $140.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(140);
                     int[] coordinates = {0, 7};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -275,8 +275,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $160.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(160);
                     int[] coordinates = {0, 6};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -295,8 +295,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $200. Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(200);
                     int[] coordinates = {5, 5};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -312,8 +312,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $180.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(140);
                     int[] coordinates = {0, 10};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -333,8 +333,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $180.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(180);
                     int[] coordinates = {0, 2};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -350,8 +350,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $200.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(200);
                     int[] coordinates = {0, 1};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -370,8 +370,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $220.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(200);
                     int[] coordinates = {0, 0};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -391,8 +391,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $220.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(220);
                     int[] coordinates = {2, 0};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -408,8 +408,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $240.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(240);
                     int[] coordinates = {4, 0};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -428,7 +428,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $200.  Yes or no? ");
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(200);
                     int[] coordinates = {5, 0};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -444,8 +445,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $260.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(260);
                     int[] coordinates = {6, 0};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -461,8 +462,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $260.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(260);
                     int[] coordinates = {7, 0};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -478,8 +479,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this utility, pay $150.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(150);
                     int[] coordinates = {8, 0};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -495,8 +496,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $280.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(280);
                     int[] coordinates = {9, 0};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -515,8 +516,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $300.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(300);
                     int[] coordinates = {10, 1};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -532,8 +533,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $300.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(300);
                     int[] coordinates = {10, 2};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -553,8 +554,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $320.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(320);
                     int[] coordinates = {10, 4};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -573,8 +574,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $200.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(200);
                     int[] coordinates = {10, 5};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -594,8 +595,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $350.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(350);
                     int[] coordinates = {10, 7};
                     currentPlayer.addToOwnedCoordinates(coordinates);
@@ -614,8 +615,8 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $400.  Yes or no? ");
-                answer = scan.nextLine();
-                if (answer.toLowerCase().equals("yes")) {
+                okie = scan.nextLine();
+                if (okie.toLowerCase().equals("yes")) {
                     player1.subtractMoney(400);
                     int[] coordinates = {10, 9};
                     currentPlayer.addToOwnedCoordinates(coordinates);
