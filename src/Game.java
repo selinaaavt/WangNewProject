@@ -35,7 +35,7 @@ public class Game {
     }
     public void createPlayers(int howMany) {
         while (howMany <= 1 || howMany >= 5) {
-            System.out.println("That is an invalid number of player you inserted.");
+            System.out.println("That is an invalid number of players.");
             System.out.print("Enter the amount of players: ");
             howMany = scan.nextInt();
         }
