@@ -4,6 +4,7 @@ public class Player {
     private int[] coordinates;
     private String name;
     private ArrayList<int[]> ownedCoordinates;
+    private int money;
 
     public Player(String name) {
         this.name = name;
@@ -11,6 +12,7 @@ public class Player {
         coordinates[0] = 10;
         coordinates[1] = 10;
         ownedCoordinates = new ArrayList<>();
+        money = 1500;
     }
 
     public int[] getCoordinates() {
@@ -38,5 +40,17 @@ public class Player {
             }
         }
         return false;
+    }
+    public int getMoney() {
+        return money;
+    }
+    public void setMoney(int money) {
+        this.money = money;
+    }
+    public void addMoney(int amount) {
+        money += amount;
+    }
+    public void subtractMoney(int amount) {
+        money -= amount;
     }
 }

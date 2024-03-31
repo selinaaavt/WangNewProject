@@ -10,6 +10,7 @@ public class Game {
     private Player player4;
     private ArrayList<Player> listOfPlayers;
     private MonopolyGrid monopolyGrid;
+    private boolean status;
     public Game() {
         monopolyGrid = new MonopolyGrid();
         monopolyGrid.populateGrid();
@@ -18,7 +19,7 @@ public class Game {
         listOfPlayers = new ArrayList<>();
         play();
         createPlayers();
-
+        status = false;
     }
     public void play() {
         System.out.print("Hello! Do you wish to play monopoly? y/n: ");
@@ -26,6 +27,7 @@ public class Game {
         if (answer.equals("y")) {
             System.out.print("Enter the amount of players, including you (up to 4 and more than 1): ");
             amountOfPlayers = scan.nextInt();
+            scan.nextLine();
         } else {
             System.out.println("Bye!");
         }
@@ -35,6 +37,7 @@ public class Game {
             System.out.println("That is an invalid number of player you inserted.");
             System.out.print("Enter the amount of players: ");
             amountOfPlayers = scan.nextInt();
+            scan.nextLine();
         }
         if (amountOfPlayers == 1) {
             player1 = new Player("P1");
@@ -62,7 +65,9 @@ public class Game {
             listOfPlayers.add(player4);
 
         }
-        turns();
+        while (status == false) {
+            turns();
+        }
     }
     public int rollDice() {
         int outcome = (int) (Math.random()*12) + 1;
@@ -72,23 +77,25 @@ public class Game {
         Player currentPlayer = player1;
         while (currentPlayer != null) {
             System.out.println("It is " + currentPlayer.getName() + "'s turn! ");
-            int moves = rollDice();
-            System.out.println(currentPlayer.getName() + " rolled a " + moves);
-            determiningLanding(moves, currentPlayer);
-            monopolyGrid.printGrid();
-            determiningOptions(currentPlayer);
-            if (currentPlayer == player1) {
-                currentPlayer = player2;
-            } else if (currentPlayer == player2) {
-                currentPlayer = player3;
-            } else if (currentPlayer == player3) {
-                currentPlayer = player4;
-            } else if (currentPlayer == player4) {
-                currentPlayer = player1;
-            }
+                int moves = rollDice();
+                System.out.println(currentPlayer.getName() + " rolled a " + moves);
+                determiningLanding(moves, currentPlayer);
+                monopolyGrid.printGrid();
+                determiningOptions(currentPlayer);
+                if (currentPlayer == player1) {
+                    currentPlayer = player2;
+                } else if (currentPlayer == player2) {
+                    currentPlayer = player3;
+                } else if (currentPlayer == player3) {
+                    currentPlayer = player4;
+                } else if (currentPlayer == player4) {
+                    currentPlayer = player1;
+                }
+
         }
     }
     public void determiningOptions(Player currentPlayer) {
+        String answer = scan.nextLine();
         if (currentPlayer.getXCoordinate() == 9 && currentPlayer.getYCoordinate() == 10 ) {
             System.out.println("You landed on Mediterranean Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
@@ -96,6 +103,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $60. Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(60);
+                    int[] coordinates = {9, 10};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 8 && currentPlayer.getYCoordinate() == 10 ) {
@@ -109,6 +124,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $60.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(60);
+                    int[] coordinates = {7, 10};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 6 && currentPlayer.getYCoordinate() == 10 ) {
@@ -124,6 +147,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $200. Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(200);
+                    int[] coordinates = {5, 10};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 4 && currentPlayer.getYCoordinate() == 10 ) {
@@ -133,6 +164,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $100. Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(100);
+                    int[] coordinates = {4, 10};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 3 && currentPlayer.getYCoordinate() == 10 ) {
@@ -146,6 +185,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $100.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(100);
+                    int[] coordinates = {2, 10};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 1 && currentPlayer.getYCoordinate() == 10 ) {
@@ -155,6 +202,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $100.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(100);
+                    int[] coordinates = {1, 10};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 10 ) {
@@ -167,6 +222,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $140.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(140);
+                    int[] coordinates = {0, 10};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                } else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 8 ) {
@@ -176,6 +239,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this utility, pay $150.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(150);
+                    int[] coordinates = {0, 8};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 7 ) {
@@ -185,6 +256,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $140.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(140);
+                    int[] coordinates = {0, 7};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 6 ) {
@@ -194,6 +273,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $160.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(160);
+                    int[] coordinates = {0, 6};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 5 && currentPlayer.getYCoordinate() == 5 ) {
@@ -206,6 +293,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $200. Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(200);
+                    int[] coordinates = {5, 5};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 4 ) {
@@ -215,6 +310,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $180.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(140);
+                    int[] coordinates = {0, 10};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 8 && currentPlayer.getYCoordinate() == 3 ) {
@@ -228,6 +331,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $180.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(180);
+                    int[] coordinates = {0, 2};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 1 ) {
@@ -237,6 +348,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $200.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(200);
+                    int[] coordinates = {0, 1};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 0 ) {
@@ -249,6 +368,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $220.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(200);
+                    int[] coordinates = {0, 0};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 2 && currentPlayer.getYCoordinate() == 0 ) {
@@ -262,6 +389,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $220.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(220);
+                    int[] coordinates = {2, 0};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 4 && currentPlayer.getYCoordinate() == 0 ) {
@@ -271,6 +406,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $240.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(240);
+                    int[] coordinates = {4, 0};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 5 && currentPlayer.getYCoordinate() == 0) {
@@ -283,6 +426,13 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $200.  Yes or no? ");
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(200);
+                    int[] coordinates = {5, 0};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 6 && currentPlayer.getYCoordinate() == 0 ) {
@@ -292,6 +442,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $260.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(260);
+                    int[] coordinates = {6, 0};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 7 && currentPlayer.getYCoordinate() == 0 ) {
@@ -301,6 +459,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $260.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(260);
+                    int[] coordinates = {7, 0};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 8 && currentPlayer.getYCoordinate() == 0 ) {
@@ -310,6 +476,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this utility, pay $150.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(150);
+                    int[] coordinates = {8, 0};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 9 && currentPlayer.getYCoordinate() == 0 ) {
@@ -319,6 +493,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $280.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(280);
+                    int[] coordinates = {9, 0};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 0 ) {
@@ -327,19 +509,35 @@ public class Game {
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 1 ) {
             System.out.println("You landed on Pacific avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                HouseCard hello = new HouseCard(10, 20,"\u001B[46;1m", "\nRent:  $26 \nRent with Color set: $52 \nRent with 1 house: $130 \nRent with 2 house: $390 + \nRent with 3 house: $900 \nRent with 4 house: $1100 \nRent with Hotel: $1275 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                HouseCard hello = new HouseCard(13, 25,"\033[0;102m", "\n      Pacific Avenue \nRent:               $26 \nRent w Color set:   $52 \nRent with 1 ⌂:      $130 \nRent with 2 ⌂:      $390 \nRent with 3 ⌂:      $900 \nRent with 4 ⌂:      $1100 \nRent with hotel:    $1275 \n------------------------- \n⌂ cost:         $200 each \nHotel cost:     $200 each");
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $300.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(300);
+                    int[] coordinates = {10, 1};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 2 ) {
             System.out.println("You landed on North Carolina Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                HouseCard hello = new HouseCard(10, 20,"\u001B[46;1m", "\nRent:  $26 \nRent with Color set: $52 \nRent with 1 house: $130 \nRent with 2 house: $390 + \nRent with 3 house: $900 \nRent with 4 house: $1100 \nRent with Hotel: $1275 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                HouseCard hello = new HouseCard(13, 25,"\033[0;102m", "\n  North Carolina Avenue \nRent:               $26 \nRent w Color set:   $52 \nRent with 1 ⌂:      $130 \nRent with 2 ⌂:      $390 \nRent with 3 ⌂:      $900 \nRent with 4 ⌂:      $1100 \nRent with hotel:    $1275 \n------------------------- \n⌂ cost:         $200 each \nHotel cost:     $200 each");
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $300.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(300);
+                    int[] coordinates = {10, 2};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 3 ) {
@@ -347,12 +545,20 @@ public class Game {
             chest();
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 4 ) {
-            System.out.println("You landed on North Carolina Avenue.");
+            System.out.println("You landed on Pennsylvania Avenue.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                HouseCard hello = new HouseCard(10, 20,"\u001B[46;1m", "\nRent:  $28 \nRent with Color set: $56 \nRent with 1 house: $150 \nRent with 2 house: $450 + \nRent with 3 house: $1000 \nRent with 4 house: $1200 \nRent with Hotel: $1400 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                HouseCard hello = new HouseCard(13, 25,"\033[0;102m", "\n   Pennsylvania Avenue \nRent:               $28 \nRent w Color set:   $56 \nRent with 1 ⌂:      $150 \nRent with 2 ⌂:      $450 \nRent with 3 ⌂:      $1000 \nRent with 4 ⌂:      $1200 \nRent with hotel:    $1400 \n------------------------- \n⌂ cost:         $200 each \nHotel cost:     $200 each");
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $320.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(320);
+                    int[] coordinates = {10, 4};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 5 ) {
@@ -365,6 +571,14 @@ public class Game {
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $200.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(200);
+                    int[] coordinates = {10, 5};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 6 ) {
@@ -374,22 +588,38 @@ public class Game {
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 7 ) {
             System.out.println("You landed on Park Place.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                HouseCard hello = new HouseCard(10, 20,"\u001B[46;1m", "\nRent:  $35 \nRent with Color set: $70 \nRent with 1 house: $175 \nRent with 2 house: $500 + \nRent with 3 house: $1100 \nRent with 4 house: $1300 \nRent with Hotel: $1500 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                HouseCard hello = new HouseCard(13, 25,"\033[0;107m", "\n       Park Place \nRent:               $35 \nRent w Color set:   $70 \nRent with 1 ⌂:      $175 \nRent with 2 ⌂:      $500 \nRent with 3 ⌂:      $1100 \nRent with 4 ⌂:      $1300 \nRent with hotel:    $1500 \n------------------------- \n⌂ cost:         $200 each \nHotel cost:     $200 each");
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $350.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(350);
+                    int[] coordinates = {10, 7};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 8 ) {
             System.out.println("You landed on Luxury Tax! It's tax season. Pay $100");
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 9 ) {
-            System.out.println("You landed on Broadwalk.");
+            System.out.println("You landed on Boardwalk.");
             if (!(checkIfOwnedForAnyPlayer())) {
-                HouseCard hello = new HouseCard(10, 20,"\u001B[46;1m", "\nRent:  $50 \nRent with Color set: $100 \nRent with 1 house: $200 \nRent with 2 house: $600 + \nRent with 3 house: $1400 \nRent with 4 house: $1700 \nRent with Hotel: $2000 \n --------------------- \nHouse cost: $200 each \nHotel cost: $200 each");
+                HouseCard hello = new HouseCard(13, 25,"\033[0;107m", "\n        Boardwalk \nRent:               $50 \nRent w Color set:   $100 \nRent with 1 ⌂:      $200 \nRent with 2 ⌂:      $600 \nRent with 3 ⌂:      $1400 \nRent with 4 ⌂:      $1700 \nRent with hotel:    $2000 \n------------------------- \n⌂ cost:         $200 each \nHotel cost:     $200 each");
                 hello.populateGrid();
                 hello.printGrid();
                 System.out.print("To purchase this, pay $400.  Yes or no? ");
+                answer = scan.nextLine();
+                if (answer.toLowerCase().equals("yes")) {
+                    player1.subtractMoney(400);
+                    int[] coordinates = {10, 9};
+                    currentPlayer.addToOwnedCoordinates(coordinates);
+                }else {
+                    System.out.println("aight");
+                }
             }
         }
 
@@ -419,15 +649,15 @@ public class Game {
     public void determiningLanding(int moves, Player currentPlayer) {
         if (currentPlayer.getYCoordinate() == 10) {
             while (currentPlayer.getXCoordinate() != 0 && moves != 0) {
-                int remainder = moves%10;
-                if (moves > 10 || moves == 10) {
+                int remainder = moves - currentPlayer.getXCoordinate();
+                if (moves > currentPlayer.getXCoordinate() || moves == currentPlayer.getXCoordinate()) {
                     monopolyGrid.setPlayer(0, 10, currentPlayer);
                     int[] newCoord = {0, 10};
                     monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
-                } else if (moves < 10) {
-                    monopolyGrid.setPlayer(10 - moves, 10, currentPlayer);
-                    int[] newCoord = {10 - moves, 10};
+                } else if (moves < currentPlayer.getXCoordinate()) {
+                    monopolyGrid.setPlayer(currentPlayer.getXCoordinate() - moves , 10, currentPlayer);
+                    int[] newCoord = {currentPlayer.getXCoordinate() - moves , 10};
                     monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                     remainder = 0;
@@ -437,15 +667,15 @@ public class Game {
         }
         if (currentPlayer.getXCoordinate() == 0) {
             while (currentPlayer.getYCoordinate() != 0 && moves != 0) {
-                int remainder = moves%10;
-                if (moves > 10 || moves == 10) {
+                int remainder = moves - currentPlayer.getYCoordinate();
+                if (moves > currentPlayer.getYCoordinate() || moves == currentPlayer.getYCoordinate()) {
                     monopolyGrid.setPlayer(0, 0, currentPlayer);
                     int[] newCoord = {0, 0};
                      monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
-                } else if (moves < 10) {
-                    monopolyGrid.setPlayer(0, 10 - moves, currentPlayer);
-                    int[] newCoord = {0, 10 - moves};
+                } else if (moves < currentPlayer.getYCoordinate()) {
+                    monopolyGrid.setPlayer(0, currentPlayer.getYCoordinate() - moves, currentPlayer);
+                    int[] newCoord = {0, currentPlayer.getYCoordinate() - moves};
                     monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                     remainder = 0;
@@ -455,15 +685,15 @@ public class Game {
         }
         if (currentPlayer.getYCoordinate() == 0) {
             while (currentPlayer.getXCoordinate() != 10 && moves != 0) {
-                int remainder = moves%10;
-                if (moves > 10 || moves == 10) {
+                int remainder = moves -( 10 - currentPlayer.getXCoordinate() );
+                if (moves > ( 10 - currentPlayer.getXCoordinate())  || moves == ( 10 - currentPlayer.getXCoordinate())) {
                     monopolyGrid.setPlayer(10, 0, currentPlayer);
                     int[] newCoord = {10, 0};
                     monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
-                } else if (moves < 10) {
-                    monopolyGrid.setPlayer(moves, 0, currentPlayer);
-                    int[] newCoord = {moves, 0};
+                } else if (moves < ( 10 - currentPlayer.getXCoordinate())) {
+                    monopolyGrid.setPlayer(moves + currentPlayer.getXCoordinate(), 0, currentPlayer);
+                    int[] newCoord = {moves + currentPlayer.getXCoordinate(), 0};
                     monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                     remainder = 0;
@@ -472,16 +702,16 @@ public class Game {
             }
         }
         if (currentPlayer.getXCoordinate() == 10) {
-            while (currentPlayer.getXCoordinate() != 10 && moves != 0) {
-                int remainder = moves%10;
-                if (moves > 10 || moves == 10) {
+            while (currentPlayer.getYCoordinate() != 10 && moves != 0) {
+                int remainder = moves - (10 - currentPlayer.getYCoordinate() );
+                if (moves > ( 10 - currentPlayer.getYCoordinate() ) || moves == ( 10 - currentPlayer.getYCoordinate() ) ) {
                     monopolyGrid.setPlayer(10, 10, currentPlayer);
                     int[] newCoord = {10, 10};
                     monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                 } else if (moves < 10) {
-                    monopolyGrid.setPlayer(10, moves, currentPlayer);
-                    int[] newCoord = {10, moves};
+                    monopolyGrid.setPlayer(10, moves + currentPlayer.getYCoordinate(), currentPlayer);
+                    int[] newCoord = {10 + currentPlayer.getYCoordinate(), moves};
                     monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
                     currentPlayer.setCoordinates(newCoord);
                     remainder = 0;
