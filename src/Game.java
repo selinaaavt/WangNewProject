@@ -18,7 +18,7 @@ public class Game {
         amountOfPlayers = 1;
         listOfPlayers = new ArrayList<>();
         play();
-        createPlayers();
+
         status = false;
     }
     public void play() {
@@ -26,19 +26,20 @@ public class Game {
         String answer = scan.nextLine();
         if (answer.equals("y")) {
             System.out.print("Enter the amount of players, including you (up to 4 and more than 1): ");
-            amountOfPlayers = scan.nextInt();
-            scan.nextLine();
+            int howMany = scan.nextInt();
+            createPlayers(howMany);
         } else {
             System.out.println("Bye!");
             System.exit(0);
         }
     }
-    public void createPlayers() {
-        while (amountOfPlayers <= 1 || amountOfPlayers > 5) {
+    public void createPlayers(int howMany) {
+        while (howMany <= 1 || howMany >= 5) {
             System.out.println("That is an invalid number of player you inserted.");
             System.out.print("Enter the amount of players: ");
-            amountOfPlayers = scan.nextInt();
+            howMany = scan.nextInt();
         }
+        amountOfPlayers = howMany;
         scan.nextLine();
         if (amountOfPlayers == 1) {
             player1 = new Player("P1");
@@ -116,7 +117,7 @@ public class Game {
         }
         if (currentPlayer.getXCoordinate() == 8 && currentPlayer.getYCoordinate() == 10 ) {
             System.out.println("You landed on Community Chest.");
-            chest();
+            chest(currentPlayer);
         }
         if (currentPlayer.getXCoordinate() == 7 && currentPlayer.getYCoordinate() == 10 ) {
             System.out.println("You landed on Baltic Avenue.");
@@ -177,7 +178,7 @@ public class Game {
         }
         if (currentPlayer.getXCoordinate() == 3 && currentPlayer.getYCoordinate() == 10 ) {
             System.out.println("You landed on Chance.");
-            chance();
+            chance(currentPlayer);
         }
         if (currentPlayer.getXCoordinate() == 2 && currentPlayer.getYCoordinate() == 10 ) {
             System.out.println("You landed on Vermont Avenue.");
@@ -323,7 +324,7 @@ public class Game {
         }
         if (currentPlayer.getXCoordinate() == 8 && currentPlayer.getYCoordinate() == 3 ) {
             System.out.println("You landed on Community Chest.");
-            chest();
+            chest(currentPlayer);
         }
         if (currentPlayer.getXCoordinate() == 0 && currentPlayer.getYCoordinate() == 2 ) {
             System.out.println("You landed on Tennessee Avenue.");
@@ -381,7 +382,7 @@ public class Game {
         }
         if (currentPlayer.getXCoordinate() == 2 && currentPlayer.getYCoordinate() == 0 ) {
             System.out.println("You landed on Chance.");
-            chance();
+            chance(currentPlayer);
         }
         if (currentPlayer.getXCoordinate() == 3 && currentPlayer.getYCoordinate() == 0 ) {
             System.out.println("You landed on Indiana Avenue.");
@@ -543,7 +544,7 @@ public class Game {
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 3 ) {
             System.out.println("You landed on Community Chest.");
-            chest();
+            chest(currentPlayer);
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 4 ) {
             System.out.println("You landed on Pennsylvania Avenue.");
@@ -584,7 +585,7 @@ public class Game {
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 6 ) {
             System.out.println("You landed on Chance.");
-            chance();
+            chance(currentPlayer);
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 7 ) {
             System.out.println("You landed on Park Place.");
@@ -625,7 +626,7 @@ public class Game {
         }
 
     }
-    public void chance() {
+    public void chance(Player currentplayer) {
         int x = (int) (Math.random()*20 ) + 1;
         if (x > 18) {
             System.out.println("Go back three spaces");
@@ -723,12 +724,11 @@ public class Game {
             }
         }
     }
-
-
-    public void chest() {
+    public void chest(Player currentplayer) {
         int x = (int) (Math.random()*20 ) + 1;
         if (x > 18) {
             System.out.println("You inherit $100");
+            currentplayer.addMoney(100);
         } else if (x > 16) {
             System.out.println("Doctor's fee: Pay $50");
         } else if (x > 14) {
@@ -742,7 +742,7 @@ public class Game {
         } else if (x > 6) {
             System.out.println("You are assessed for street repairs. $40 per house and $115 per hotel");
         } else if ( x > 4 ){
-            System.out.println("Bank pays you 50 dollars");
+            System.out.println("Bank pays you 50 dollars +50");
         } else {
             System.out.println("Advance to go! Collect $200");
         }
