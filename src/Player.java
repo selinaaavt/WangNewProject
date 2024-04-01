@@ -3,16 +3,18 @@ import java.util.ArrayList;
 public class Player {
     private int[] coordinates;
     private String name;
-    private ArrayList<int[]> ownedCoordinates;
+    private ArrayList<Possession> ownedPossessions;
     private int money;
+    private boolean getOutJailCardPossession;
 
     public Player(String name) {
         this.name = name;
         coordinates = new int[2];
         coordinates[0] = 10;
         coordinates[1] = 10;
-        ownedCoordinates = new ArrayList<>();
+        ownedPossessions = new ArrayList<>();
         money = 1500;
+        getOutJailCardPossession = false;
     }
 
     public int[] getCoordinates() {
@@ -30,12 +32,12 @@ public class Player {
     public String getName() {
         return name;
     }
-    public void addToOwnedCoordinates(int[] aa) {
-        ownedCoordinates.add(aa);
+    public void addToOwnedCoordinates(Possession newPos) {
+        ownedPossessions.add(newPos);
     }
-    public boolean search(int[] aa) {
-        for (int i = 0; i < ownedCoordinates.size(); i++) {
-            if (ownedCoordinates.get(i) == aa) {
+    public boolean search(int x, int y) {
+        for (int i = 0; i < ownedPossessions.size(); i++) {
+            if (ownedPossessions.get(i).getxCoordinate() ==x && ownedPossessions.get(i).getyCoordinate() == y) {
                 return true;
             }
         }
@@ -52,5 +54,25 @@ public class Player {
     }
     public void subtractMoney(int amount) {
         money -= amount;
+    }
+    public void setGetOutJailCardPossession(boolean value) {
+        getOutJailCardPossession = value;
+    }
+    public void printProperties() {
+        if (ownedPossessions.size() == 0) {
+            System.out.println("You currently do not have any properties");
+        } else {
+
+        }
+    }
+    public boolean colorSet() {
+
+    }
+    public void find(int x, int y) {
+        if (y == 10) {
+            if (x == 9) {
+                System.out.println("You own Mediterranean Avenue. ");
+            }
+        }
     }
 }
