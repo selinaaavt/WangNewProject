@@ -18,7 +18,6 @@ public class Game {
         amountOfPlayers = 1;
         listOfPlayers = new ArrayList<>();
         play();
-
         status = false;
     }
     public void play() {
@@ -41,10 +40,7 @@ public class Game {
         }
         amountOfPlayers = howMany;
         scan.nextLine();
-        if (amountOfPlayers == 1) {
-            player1 = new Player("P1");
-            listOfPlayers.add(player1);
-        } else if (amountOfPlayers == 2) {
+        if (amountOfPlayers == 2) {
             player1 = new Player("P1");
             player2 = new Player("P2");
             listOfPlayers.add(player1);
@@ -89,7 +85,7 @@ public class Game {
             } else if (answer.equals("c")) {
                 System.out.println("You currently have $" + currentPlayer.getMoney() + " in your bank account");
             } else if (answer.equals("v")) {
-
+                currentPlayer.printProperties();
             }
             determiningOptions(currentPlayer);
             if (currentPlayer == player1) {
@@ -600,6 +596,11 @@ public class Game {
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 0 ) {
             System.out.println("GO TO JAIL.");
+            monopolyGrid.setPlayer(0, 10, currentPlayer);
+            int[] newCoord = {0 , 10};
+            monopolyGrid.repopulate(currentPlayer.getXCoordinate(), currentPlayer.getYCoordinate());
+            currentPlayer.setCoordinates(newCoord);
+
         }
         if (currentPlayer.getXCoordinate() == 10 && currentPlayer.getYCoordinate() == 1 ) {
             System.out.println("You landed on Pacific Avenue.");

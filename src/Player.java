@@ -37,7 +37,7 @@ public class Player {
     }
     public boolean search(int x, int y) {
         for (int i = 0; i < ownedPossessions.size(); i++) {
-            if (ownedPossessions.get(i).getxCoordinate() ==x && ownedPossessions.get(i).getyCoordinate() == y) {
+            if (ownedPossessions.get(i).getxCoordinate() == x && ownedPossessions.get(i).getyCoordinate() == y) {
                 return true;
             }
         }
@@ -65,14 +65,78 @@ public class Player {
 
         }
     }
-    public boolean colorSet() {
-
+    public boolean checkForColorSet(int x, int y ) {
+        if (x == 9 && y == 10 && search(7, 10)) {
+            return true;
+        } else if (x == 7 && y == 10 && search(9, 10)) {
+            return true;
+        } else if (x == 4 && y == 10 && search(2, 10) && search(1, 10)) {
+            return true;
+        } else if (x == 2 && y == 10 && search(4, 10) && search(1, 10)) {
+            return true;
+        } else if (x == 1 && y == 10 && search(4, 10) && search(2, 10)) {
+            return true;
+        } else if (x == 0 && y == 9 && search(0, 6) && search(0, 7)) {
+            return true;
+        } else if (x == 0 && y == 6 && search(0, 9) && search(0, 7)) {
+            return true;
+        } else if (x == 0 && y == 7 && search(0, 6) && search(0, 9)) {
+            return true;
+        } else if (x == 0 && y == 4 && search(0, 2) && search(0, 1)) {
+            return true;
+        } else if (x == 0 && y == 2 && search(0, 4) && search(0, 1)) {
+            return true;
+        } else if (x == 0 && y == 1 && search(0, 2) && search(0, 4)) {
+            return true;
+        } else if (x == 1 && y == 0 && search(3, 0) && search(4, 0)) {
+            return true;
+        } else if (x == 3 && y == 0 && search(1, 0) && search(4, 0)) {
+            return true;
+        } else if (x == 4 && y == 0 && search(3, 0) && search(1, 0)) {
+            return true;
+        } else if (x == 6 && y == 0 && search(7, 0) && search(9, 0)) {
+            return true;
+        } else if (x == 7 && y == 0 && search(6, 0) && search(9, 0)) {
+            return true;
+        } else if (x == 9 && y == 0 && search(6, 0) && search(7, 0)) {
+            return true;
+        } else if (x == 10 && y == 1 && search(10, 2) && search(10, 4)) {
+            return true;
+        } else if (x == 10 && y == 2 && search(10, 1) && search(10, 4)) {
+            return true;
+        } else if (x == 10 && y == 4 && search(10, 1) && search(10, 2)) {
+            return true;
+        } else if (x == 10 && y == 7 && search(10, 9)) {
+            return true;
+        } else if (x == 10 && y == 9 && search(10, 7)) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    public void find(int x, int y) {
-        if (y == 10) {
-            if (x == 9) {
-                System.out.println("You own Mediterranean Avenue. ");
-            }
+    public int howManyRailRoads() {
+        int howMany = 0;
+        if (search(10, 5)) {
+            howMany++;
+        }
+        if (search(5, 0)) {
+            howMany++;
+        }
+        if (search(0, 5)) {
+            howMany++;
+        }
+        if (search(5, 10)) {
+            howMany++;
+        }
+        return howMany;
+    }
+    public boolean ownAllUtilities(int x, int y) {
+        if ( x == 8 && y == 0 && search(0, 8)) {
+            return true;
+        } else if (x == 0 && y == 8 && search(8, 0))  {
+            return true;
+        } else {
+            return false;
         }
     }
 }
