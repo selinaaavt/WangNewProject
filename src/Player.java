@@ -62,7 +62,9 @@ public class Player {
         if (ownedPossessions.size() == 0) {
             System.out.println("You currently do not have any properties");
         } else {
-
+            for (int i = 0; i < ownedPossessions.size(); i ++) {
+                System.out.println("You currently own " + ownedPossessions.get(i).toString());
+            }
         }
     }
     public boolean checkForColorSet(int x, int y ) {
