@@ -6,6 +6,9 @@ public class Player {
     private ArrayList<Possession> ownedPossessions;
     private int money;
     private boolean getOutJailCardPossession;
+    private boolean inJail;
+    private int turnsInJail;
+    private boolean alive;
 
     public Player(String name) {
         this.name = name;
@@ -15,6 +18,7 @@ public class Player {
         ownedPossessions = new ArrayList<>();
         money = 1500;
         getOutJailCardPossession = false;
+        alive = true;
     }
 
     public int[] getCoordinates() {
@@ -42,6 +46,21 @@ public class Player {
             }
         }
         return false;
+    }
+    public Possession searchAndReturn(int x, int y) {
+        boolean hai = false;
+        int indexFound = 0;
+        for (int i = 0; i < ownedPossessions.size(); i++) {
+            if (ownedPossessions.get(i).getxCoordinate() == x && ownedPossessions.get(i).getyCoordinate() == y) {
+                hai = true;
+                indexFound = i;
+            }
+        }
+        if (hai) {
+            return ownedPossessions.get(indexFound);
+        } else {
+            return null;
+        }
     }
     public int getMoney() {
         return money;
@@ -141,4 +160,41 @@ public class Player {
             return false;
         }
     }
+    public boolean isInJail() {
+        return inJail;
+    }
+    public void setInJail(boolean inJail) {
+        this.inJail = inJail;
+    }
+    public boolean jailTurn() {
+        turnsInJail++;
+        System.out.print("It is " + name + "'s " + turnsInJail + " turn in Jail");
+
+        if (turnsInJail == 3) {
+            inJail = false;
+        } else {
+            int roll1 = (int) (Math.random()*6) + 1;
+            int roll2 = (int) (Math.random()*6) + 1;
+            System.out.println("You rolled a " + roll1 + " and " + roll2);
+            if (roll1 == roll2) {
+                inJail = false;
+                System.out.println("You have successfully escaped jail!");
+            }
+        }
+        if(inJail == true) {
+            System.out.println("You have failed to escape jail!");
+        }
+        return !inJail;
+    }
+    public void checkIfDead() {
+        if (money < 0) {
+            alive = false;
+        } else {
+            alive = true;
+        }
+    }
+    public boolean isAlive() {
+        return alive;
+    }
 }
+

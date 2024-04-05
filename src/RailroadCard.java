@@ -10,6 +10,7 @@ public class RailroadCard extends Card {
         this.color = color;
         this.content = content;
     }
+    @Override
     public void populateGrid() {
         for (int i = 0; i < getBoard().length; i++) {
             for (int x = 0; x < getRowLength(); x++) {

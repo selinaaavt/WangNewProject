@@ -10,6 +10,7 @@ public class HouseCard extends Card {
         this.color = color;
         this.content = content;
     }
+    @Override
     public void populateGrid() {
         if (color.equals("\u001B[40;1m")) {
             for (int i = 0; i < getBoard().length; i++) {
